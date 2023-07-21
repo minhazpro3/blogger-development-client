@@ -1,15 +1,14 @@
-import Link from "next/link"
-import Hello from "./content/hello.mdx"
-import { getAllPostsMeta } from "@/lib/mdx"
-
-export default async function Home() {
-  const posts = await getAllPostsMeta()
+import React from 'react'
+import Link from 'next/link'
+import { getAllPostsMeta } from '../../../lib/mdx'
+const Page = async () => {
+    const posts = await getAllPostsMeta()
   return (
-   <main>
-       <div className='flex gap-6 mt-6'>
+    <div>
+         <div className='flex gap-6 mt-6'>
           {posts?.map((post:any) => (
             <Link
-              href={`/${post.slug}`}
+              href={`posts/${post.slug}`}
               key={post?.title}
               className='p-8 rounded-md shadow-md'
             >
@@ -21,7 +20,8 @@ export default async function Home() {
             </Link>
           ))}
         </div>
-
-     </main>
+    </div>
   )
 }
+
+export default Page
