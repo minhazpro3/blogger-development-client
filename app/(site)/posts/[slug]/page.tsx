@@ -1,4 +1,6 @@
 import { getPostBySlug } from '@/lib/mdx'
+import rehypeHighlight from 'rehype-highlight';
+
 
 const getPageContent = async (slug:any) => {
   const { meta, content } = await getPostBySlug(slug)
@@ -12,6 +14,7 @@ export async function generateMetadata({ params }:any) {
 
 const Page = async ({ params }:any) => {
   const { content } = await getPageContent(params.slug)
+   
 
   return (
     <section className='py-24'>

@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { getAllPostsMeta } from '../../../lib/mdx'
+import { getAllPostsMeta } from '@/lib/mdx'
 const Page = async () => {
     const posts = await getAllPostsMeta()
   return (
